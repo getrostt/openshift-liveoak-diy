@@ -10,6 +10,10 @@ source $OPENSHIFT_REPO_DIR/.openshift/action_hooks/vars.inc
 cp -f $OPENSHIFT_REPO_DIR/liveoak/standalone.conf \
 $LIVEOAK_BASE/bin/standalone.conf
 
+# Copy standalone.xml to current installation.
+cp -f $OPENSHIFT_REPO_DIR/liveoak/standalone.xml \
+$LIVEOAK_BASE/standalone/configuration/standalone.xml
+
 # Copy keycloak to current installation.
 cp -f $OPENSHIFT_REPO_DIR/liveoak/auth-server.war \
 $LIVEOAK_BASE/standalone/deployments/auth-server.war
