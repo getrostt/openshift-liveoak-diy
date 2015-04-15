@@ -17,3 +17,7 @@ $LIVEOAK_BASE/standalone/configuration/standalone.xml
 # Copy keycloak to current installation.
 cp -f $OPENSHIFT_REPO_DIR/liveoak/auth-server.war \
 $LIVEOAK_BASE/standalone/deployments/auth-server.war
+
+# Copy constants.js to current installation.
+cp -f $OPENSHIFT_REPO_DIR/liveoak/constants.js \
+$LIVEOAK_BASE/client/constants.js
