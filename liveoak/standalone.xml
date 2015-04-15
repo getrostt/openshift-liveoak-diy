@@ -366,7 +366,7 @@
             </servlet-container>
             <handlers>
                 <reverse-proxy name="reverse-proxy" connections-per-thread="30">
-                    <host name="liveoak-dev.taskncloud.com" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
+                    <host name="http://${jboss.bind.address:127.0.0.1}:${jboss.liveoak.port:8383}" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
                 </reverse-proxy>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content" directory-listing="true"/>
             </handlers>
@@ -421,7 +421,7 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
         <outbound-socket-binding name="liveoak-local">
-            <remote-destination host="localhost" port="${jboss.liveoak.port:8383}"/>
+            <remote-destination host="${jboss.bind.address:127.0.0.1}" port="${jboss.liveoak.port:8383}"/>
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
