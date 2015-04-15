@@ -11,5 +11,7 @@ nohup $LIVEOAK_BASE/bin/standalone.sh -b $OPENSHIFT_DIY_IP -Djboss.bind.address=
   -Dliveoak.initial.password=$OPENSHIFT_MONGODB_DB_PASSWORD \
   -Dkeycloak.connectionsMongo.host=$OPENSHIFT_MONGODB_DB_HOST \
   -Dkeycloak.connectionsMongo.port=$OPENSHIFT_MONGODB_DB_PORT \
-  -Dkeycloak.connectionsMongo.db=liveoak
-  > $OPENSHIFT_LOG_DIR/boot.log 2>&1 &
+  -Dkeycloak.connectionsMongo.db=liveoak \
+  -Dkeycloak.connectionsMongo.user=$OPENSHIFT_MONGODB_DB_USERNAME \
+  -Dkeycloak.connectionsMongo.password=$OPENSHIFT_MONGODB_DB_PASSWORD \
+  &> $OPENSHIFT_LOG_DIR/boot.log 2>&1 &
