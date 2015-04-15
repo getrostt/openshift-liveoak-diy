@@ -1,10 +1,12 @@
 #!/bin/bash
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
+source $OPENSHIFT_REPO_DIR/.openshift/action_hooks/vars.inc
 
 # The logic to stop your application should be put in this script.
-if [ -z "$(ps -ef | grep testrubyserver.rb | grep -v grep)" ]
+if [ -z "$(pgrep -u $(whoami) java)" ]
 then
-    client_result "Application is already stopped"
+  client_result "Liveoak is already stopped"
 else
-    kill `ps -ef | grep testrubyserver.rb | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+  echo "Application will be stopped"
+  kill `ps -ef | grep java | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 fi
