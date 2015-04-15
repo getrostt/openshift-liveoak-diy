@@ -7,7 +7,7 @@ nohup $LIVEOAK_BASE/bin/standalone.sh -b $OPENSHIFT_DIY_IP \
   -Djboss.bind.address=$OPENSHIFT_DIY_IP \
   -Djboss.bind.address.management=$OPENSHIFT_DIY_IP \
   -Djboss.bind.address.unsecure=$OPENSHIFT_DIY_IP  \
-  -Djboss.liveoak.port=8383 \
+  -Djboss.liveoak.port=$OPENSHIFT_LIVEOAK_PORT \
   -Dopenshift.gear.dns=$OPENSHIFT_GEAR_DNS \
   -Dliveoak.mongo.host=$OPENSHIFT_MONGODB_DB_HOST \
   -Dliveoak.mongo.port=$OPENSHIFT_MONGODB_DB_PORT \
