@@ -366,7 +366,7 @@
             </servlet-container>
             <handlers>
                 <reverse-proxy name="reverse-proxy" connections-per-thread="30">
-                    <host name="127.3.73.129:18383" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
+                    <host name="http://127.3.73.129:18383" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
                 </reverse-proxy>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content" directory-listing="true"/>
             </handlers>
