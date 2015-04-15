@@ -54,9 +54,6 @@
                 <json-formatter name="json-formatter"/>
             </formatters>
             <handlers>
-                <reverse-proxy name="reverse-proxy" connections-per-thread="30">
-                  <host name="http://${jboss.bind.address:127.0.0.1}:18383" instance-id="myRoute"/>
-                </reverse-proxy>
                 <file-handler name="file" formatter="json-formatter" relative-to="jboss.server.data.dir" path="audit-log.log"/>
             </handlers>
             <logger log-boot="true" log-read-only="false" enabled="false">
@@ -369,7 +366,7 @@
             </servlet-container>
             <handlers>
                 <reverse-proxy name="reverse-proxy" connections-per-thread="30">
-                    <host name="localhost" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
+                    <host name="${jboss.bind.address:127.0.0.1}:18383" outbound-socket-binding="liveoak-local" instance-id="myRoute"/>
                 </reverse-proxy>
                 <file name="welcome-content" path="${jboss.home.dir}/welcome-content" directory-listing="true"/>
             </handlers>
