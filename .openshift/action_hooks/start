@@ -3,4 +3,4 @@
 # script. The application will work only if it binds to
 # $OPENSHIFT_DIY_IP:8080
 source $OPENSHIFT_REPO_DIR/.openshift/action_hooks/vars.inc
-nohup $LIVEOAK_BASE/bin/standalone.sh > $OPENSHIFT_LOG_DIR/boot.log 2>&1 &
+nohup $LIVEOAK_BASE/bin/standalone.sh -b $OPENSHIFT_DIY_IP -Djboss.bind.address=$OPENSHIFT_DIY_IP -Djboss.bind.address.management=$OPENSHIFT_DIY_IP -Djboss.bind.address.unsecure=$OPENSHIFT_DIY_IP -Djboss.liveoak.port=18383 -Dopenshift.gear.dns=$OPENSHIFT_GEAR_DNS -Dliveoak.mongo.host=$OPENSHIFT_MONGODB_DB_HOST -Dliveoak.mongo.port=$OPENSHIFT_MONGODB_DB_PORT -Dliveoak.mongo.username=$OPENSHIFT_MONGODB_DB_USERNAME -Dliveoak.mongo.password=$OPENSHIFT_MONGODB_DB_PASSWORD -Dliveoak.mongo.authDb=admin -Dliveoak.initial.password=$OPENSHIFT_MONGODB_DB_PASSWORD > $OPENSHIFT_LOG_DIR/boot.log 2>&1 &
