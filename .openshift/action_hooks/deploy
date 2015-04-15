@@ -1,0 +1,3 @@
+# Copy standalone.conf to current installation.
+cp -f $OPENSHIFT_REPO_DIR/liveoak/standalone.conf \
+$CROWD_BASE/bin/standalone.conf
